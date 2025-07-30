@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Feed post comment and profile</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; background: #f9f9f9; }
+    .post, .comment, .user-detail, .todo { background: white; padding: 10px; margin: 10px 0; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .user-name { color: blue; cursor: pointer; text-decoration: underline; }
+    .gallery img { width: 100px; height: 100px; margin: 5px; object-fit: cover; }
+    .gallery { display: flex; flex-wrap: wrap; }
+    .back-btn { margin: 10px 0; display: inline-block; cursor: pointer; color: darkred; }
+  </style>
+</head>
+<body>
+  <h1>Feed </h1>
+  <div id="app">Loading...</div>
+
+  <script>
+    const app = document.getElementById('app');
+
+    async function fetchJSON(url) {
+      const response = await fetch(url);
+      return response.json();
+    }
+
+    async function loadFeed() {
+      app.innerHTML = '<h2>Loading feed...</h2>';
+
+      const [posts, users, comments] = await Promise.all([
+        fetchJSON('https://jsonplaceholder.typicode.com/posts'),
+        fetchJSON('https://jsonplaceholder.typicode.com/users'),
+        fetchJSON('https://jsonplaceholder.typicode.com/comments')
+      ]);
+
+      const userMap = {};
+      users.forEach(user => userMap[user.id] = user);
+
+      app.innerHTML = '<h2>Feed</h2>';
+
+      posts.slice(0, 5).forEach(post => {
+        const postDiv = document.createElement('div');
+        postDiv.className = 'post';
+        postDiv.innerHTML = `
+          <h3>${post.title}</h3>
+          <p>${post.body}</p>
+          <p>By: <span class="user-name" data-user-id="${post.userId}">${userMap[post.userId].name}</span></p>
+          <h4>Comments:</h4>
+        `;
+
+        const postComments = comments.filter(c => c.postId === post.id);
+        postComments.forEach(comment => {
+          const cDiv = document.createElement('div');
+          cDiv.className = 'comment';
+          cDiv.textContent = comment.body;
+          postDiv.appendChild(cDiv);
+        });
+
+        app.appendChild(postDiv);
+      });
+
+      // Clickable usernames
+      document.querySelectorAll('.user-name').forEach(elem => {
+        elem.addEventListener('click', () => {
+          const userId = elem.getAttribute('data-user-id');
+          loadUserProfile(userId);
+        });
+      });
+    }
+
+    async function loadUserProfile(userId) {
+      app.innerHTML = '<h2>Loading user profile...</h2>';
+
+      const [user, todos, albums] = await Promise.all([
+        fetchJSON(`https://jsonplaceholder.typicode.com/users/${userId}`),
+        fetchJSON(`https://jsonplaceholder.typicode.com/todos?userId=${userId}`),
+        fetchJSON(`https://jsonplaceholder.typicode.com/albums?userId=${userId}`)
+      ]);
+
+      const albumIds = albums.map(a => a.id);
+      const photos = await fetchJSON(`https://jsonplaceholder.typicode.com/photos`);
+
+      const userPhotos = photos.filter(p => albumIds.includes(p.albumId)).slice(0, 12);
+
+      app.innerHTML = `
+        <div class="user-detail">
+          <h2>${user.name}</h2>
+          <p><strong>Email:</strong> ${user.email}</p>
+          <p><strong>Company:</strong> ${user.company.name}</p>
+          <p><strong>Website:</strong> ${user.website}</p>
+          <div class="back-btn" onclick="loadFeed()">← Back to Feed</div>
+        </div>
+        <h3>Photo Gallery</h3>
+        <div class="gallery">
+          ${userPhotos.map(p => `<img src="${p.thumbnailUrl}" alt="photo">`).join('')}
+        </div>
+        <h3>Todos</h3>
+        ${todos.map(todo => `
+          <div class="todo">
+            <input type="checkbox" ${todo.completed ? 'checked' : ''} disabled>
+            ${todo.title}
+          </div>
+        `).join('')}
+      `;
+    }
+
+    loadFeed(); // Start
+  </script>
+</body>
+</html>

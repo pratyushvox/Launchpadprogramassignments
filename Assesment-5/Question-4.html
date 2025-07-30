@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #loginBtn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      
+    }
+
+    #loginBtn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+    <button id="loginBtn">Login</button>
+
+    <script>
+    const User = {
+      name: 'Alice',
+      welcome: function() {
+        console.log(`Welcome, ${this.name}!`);
+        alert(`Welcome, ${this.name}!`)  //so we can see in the display too .
+      }
+    };
+
+    document
+      .querySelector('#loginBtn')
+      .addEventListener('click', User.welcome.bind(User));
+  </script>
+</body>
+</html>
