@@ -7,8 +7,8 @@ class Counter {
     this.counter.innerText = this.value;
 
     // Add event listeners
-    this.incrementBtn.addEventListener("click", () => this.increment());
-    this.decrementBtn.addEventListener("click", () => this.decrement());
+    this.incrementBtn.addEventListener("click", () => this.increment());//increment the value
+    this.decrementBtn.addEventListener("click", () => this.decrement());//decrement the value
   }
 
   increment() {
