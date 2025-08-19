@@ -1,69 +1,25 @@
-# React + TypeScript + Vite
+# Pick&Go - Modern E-Commerce React Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek, responsive e-commerce web application built with React, TypeScript, and Tailwind CSS. Features product browsing, search functionality, and seamless navigation.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Product Catalog**: Browse products with beautiful card layouts
+- **Advanced Search**: Real-time product search with category filtering
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Modern UI**: Teal gradient theme with smooth animations
+- **Type Safety**: Full TypeScript implementation
+- **React Router**: Seamless single-page navigation
 
-## Expanding the ESLint configuration
+homepage : 
+<img width="1909" height="914" alt="image" src="https://github.com/user-attachments/assets/eb54eb45-7727-4a21-a2ab-0cfdac53c181" />
+<img width="1715" height="775" alt="image" src="https://github.com/user-attachments/assets/fa7b7a54-5b3b-4a6c-873c-bb22f38ef800" />
+product page :
+<img width="1899" height="898" alt="image" src="https://github.com/user-attachments/assets/85ec090a-0074-46e5-8234-2894c9cfc676" />
+product detail page : 
+<img width="1901" height="884" alt="image" src="https://github.com/user-attachments/assets/8ea52357-5b02-4729-8c27-3446ebf5c1d5" />
+aboutus page :
+<img width="1791" height="869" alt="image" src="https://github.com/user-attachments/assets/5e0fe90b-8932-4b79-a17f-2bd4be3b6fcb" />
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
