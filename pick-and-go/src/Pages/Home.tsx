@@ -9,7 +9,7 @@ export default function Home() {
       {/* Hero Section - Updated to teal gradient */}
       <section className="bg-gradient-to-r from-teal-600 to-teal-500 text-white py-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to ShopNow</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to Pick&Go</h1>
           <p className="text-xl mb-8">Discover amazing products at unbeatable prices</p>
           <Link 
             to="/products" 
