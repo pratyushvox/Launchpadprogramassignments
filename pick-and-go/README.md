@@ -12,7 +12,8 @@ A sleek, responsive e-commerce web application built with React, TypeScript, and
 - **React Router**: Seamless single-page navigation
 
 homepage : 
-<img width="1909" height="914" alt="image" src="https://github.com/user-attachments/assets/eb54eb45-7727-4a21-a2ab-0cfdac53c181" />
+<img width="1912" height="901" alt="image" src="https://github.com/user-attachments/assets/d7eae00f-c12f-434a-bdee-c01e4c288507" />
+
 <img width="1715" height="775" alt="image" src="https://github.com/user-attachments/assets/fa7b7a54-5b3b-4a6c-873c-bb22f38ef800" />
 product page :
 <img width="1899" height="898" alt="image" src="https://github.com/user-attachments/assets/85ec090a-0074-46e5-8234-2894c9cfc676" />
