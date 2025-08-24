@@ -1,69 +1,63 @@
-# React + TypeScript + Vite
+User Registration Form
+A modern, responsive user registration form built with React, TypeScript, and React Hook Form with Zod validation.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+Form Validation: Comprehensive validation using Zod schema validation
 
-Currently, two official plugins are available:
+Dynamic Fields: Add/remove multiple skills with the field array functionality
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Responsive Design: Works seamlessly on desktop and mobile devices
 
-## Expanding the ESLint configuration
+User Feedback: Toast notifications for successful submissions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Data Preview: Real-time display of submitted form data
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Clean UI: Modern design with Tailwind CSS styling
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Technologies Used
+React with TypeScript
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+React Hook Form for form management
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Zod for schema validation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Tailwind CSS for styling
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+React Hot Toast for notifications
+
+Form Fields
+Required Fields:
+First Name (text input)
+
+Last Name (text input)
+
+Email (email input with validation)
+
+Contact Number (phone input with format validation)
+
+Role (dropdown select)
+
+Skills (dynamic array of text inputs, at least one required)
+
+Optional Field:
+Message (textarea)
+
+Validation Rules
+All required fields must be non-empty and cannot contain only whitespace
+
+Email must be in valid format
+
+Contact number must contain only numbers, +, -, spaces, parentheses
+
+At least one skill is required
+
+Skills cannot be empty or only whitespace 
+
+user registration form before sbumitting : 
+<img width="1540" height="887" alt="image" src="https://github.com/user-attachments/assets/237198fb-9401-46ca-a302-bafbd2454858" />
+user registartion from with error :
+<img width="1357" height="915" alt="image" src="https://github.com/user-attachments/assets/4ceab90d-f6cb-4630-9471-2dcf2b0b1645" />
+user registration form after succesfull : 
+<img width="1689" height="908" alt="image" src="https://github.com/user-attachments/assets/ebc569e3-3c6d-44c4-b27e-9903c9ad07eb" />
+
+
