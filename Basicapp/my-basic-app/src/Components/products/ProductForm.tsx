@@ -10,7 +10,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../ui/select';
+} from '../UI/select';
 
 interface ProductFormProps {
   product?: Product | null;

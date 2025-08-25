@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import  type { Product, PaginationInfo } from '../types';
+import type { Product, PaginationInfo } from '../types';
 import { productService } from '../services/productservice';
 import toast from 'react-hot-toast';
 import { useState } from 'react';
@@ -10,22 +10,31 @@ export const useProducts = (limit = 10) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
 
-  // Fetch products with pagination
   const {
     data: productsData,
     isLoading,
     error,
   } = useQuery({
-    queryKey: ['products', page, limit],
+    queryKey: ['products', page, limit, searchTerm, selectedCategory],
     queryFn: () => productService.getProducts(limit, page),
-    keepPreviousData: true,
+    staleTime: 0, // Always fetch fresh data
+    gcTime: 0, // Don't cache results
+    refetchOnMount: true,
+    refetchOnWindowFocus: true,
   });
 
-  // Fetch categories
-  const { data: categories } = useQuery({
+  const { data: categories = [] } = useQuery({
     queryKey: ['categories'],
     queryFn: productService.getCategories,
+    staleTime: 5 * 60 * 1000, // Cache categories for 5 minutes
   });
+
+  // Debug logs
+  console.log('useProducts Debug:');
+  console.log('productsData:', productsData);
+  console.log('isLoading:', isLoading);
+  console.log('error:', error);
+  console.log('categories:', categories);
 
   // Create product mutation
   const createProductMutation = useMutation({
@@ -34,12 +43,12 @@ export const useProducts = (limit = 10) => {
       queryClient.invalidateQueries({ queryKey: ['products'] });
       toast.success('Product created successfully');
     },
-    onError: () => {
+    onError: (error) => {
+      console.error('Create product error:', error);
       toast.error('Failed to create product');
     },
   });
 
-  // Update product mutation
   const updateProductMutation = useMutation({
     mutationFn: ({ id, product }: { id: number; product: Partial<Product> }) =>
       productService.updateProduct(id, product),
@@ -47,31 +56,33 @@ export const useProducts = (limit = 10) => {
       queryClient.invalidateQueries({ queryKey: ['products'] });
       toast.success('Product updated successfully');
     },
-    onError: () => {
+    onError: (error) => {
+      console.error('Update product error:', error);
       toast.error('Failed to update product');
     },
   });
 
-  // Delete product mutation
   const deleteProductMutation = useMutation({
-    mutationFn: productService.deleteProduct,
+    mutationFn: (id: number) => productService.deleteProduct(id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['products'] });
       toast.success('Product deleted successfully');
     },
-    onError: () => {
+    onError: (error) => {
+      console.error('Delete product error:', error);
       toast.error('Failed to delete product');
     },
   });
 
-  // Filter products based on search term and category
-  const filteredProducts = productsData?.products.filter((product) => {
-    const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory ? product.category === selectedCategory : true;
+  // Apply client-side filtering
+  const filteredProducts = productsData?.products?.filter((product) => {
+    const matchesSearch = searchTerm === '' || product.title.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === '' || selectedCategory === 'all' || product.category === selectedCategory;
     return matchesSearch && matchesCategory;
   }) || [];
 
-  // Pagination info
+  console.log('filteredProducts:', filteredProducts);
+
   const paginationInfo: PaginationInfo = {
     page,
     limit,
@@ -88,13 +99,18 @@ export const useProducts = (limit = 10) => {
     setSearchTerm,
     selectedCategory,
     setSelectedCategory,
-    categories: categories || [],
+    categories,
     setPage,
     createProduct: createProductMutation.mutate,
     updateProduct: updateProductMutation.mutate,
     deleteProduct: deleteProductMutation.mutate,
-    isCreating: createProductMutation.isLoading,
-    isUpdating: updateProductMutation.isLoading,
-    isDeleting: deleteProductMutation.isLoading,
+    isCreating: createProductMutation.isPending,
+    isUpdating: updateProductMutation.isPending,
+    isDeleting: deleteProductMutation.isPending,
+    
+    clearCache: () => {
+      queryClient.clear();
+      console.log('React Query cache cleared');
+    },
   };
 };
