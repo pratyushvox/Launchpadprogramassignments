@@ -1,69 +1,52 @@
-# React + TypeScript + Vite
+A command-line todo list manager built with TypeScript and Node.js that persists data to local JSON files.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features
+Task Management: Create, read, update, and delete tasks
 
-Currently, two official plugins are available:
+Status Tracking: Mark tasks as completed or pending
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Logging System: Track all actions performed in the application
 
-## Expanding the ESLint configuration
+Data Persistence: Save tasks and logs to JSON files
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Clean Interface: Simple command-line menu system
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+<img width="916" height="327" alt="image" src="https://github.com/user-attachments/assets/1fadb746-b797-49ac-b55f-2978e333378a" />
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Data models:
+To Do :<img width="1149" height="293" alt="Screenshot 2025-08-27 154102" src="https://github.com/user-attachments/assets/d775df13-46e3-4889-aa78-b0bec2f40c4b" />
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+log details :
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+<img width="829" height="873" alt="Screenshot 2025-08-27 154038" src="https://github.com/user-attachments/assets/0473fd27-0b3b-445b-b1ce-0be8e07feeb9" />
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Available actions :<img width="350" height="305" alt="Screenshot 2025-08-27 153616" src="https://github.com/user-attachments/assets/8a36d8b3-a72c-43cc-b42b-9fb59d984ebd" />
+Adding new task :
+<img width="429" height="133" alt="Screenshot 2025-08-27 153640" src="https://github.com/user-attachments/assets/4265db03-e0cb-4240-b876-370711a2fd27" />
+Viewing all Task :
+<img width="515" height="172" alt="Screenshot 2025-08-27 153659" src="https://github.com/user-attachments/assets/00a68346-23f9-401d-8c13-a67716decbba" />
+Updating Task :<img width="567" height="257" alt="Screenshot 2025-08-27 153737" src="https://github.com/user-attachments/assets/2834fc34-6e44-4195-a4ce-1dd69c079c5d" />
+
+Toggle task status :
+
+<img width="474" height="406" alt="Screenshot 2025-08-27 153813" src="https://github.com/user-attachments/assets/9c5ba993-15b3-4493-88cf-231d841b5395" />
+
+Deleting the task :
+
+
+<img width="522" height="243" alt="Screenshot 2025-08-27 153838" src="https://github.com/user-attachments/assets/5786bd37-4cba-4ae6-a278-1d9b70af4ef9" />
+
+clearing the task :<img width="605" height="280" alt="Screenshot 2025-08-27 153854" src="https://github.com/user-attachments/assets/b12d7667-db9f-40f5-a7cf-c8a15330e670" />
+
+
+
+
+
+
+
+
+
+
+
+
