@@ -1,0 +1,72 @@
+[
+  {
+    "id": "log1",
+    "action": "add",
+    "taskId": "sjroaki7",
+    "timestamp": "2025-08-27T09:51:28.453Z",
+    "details": "Added task: PRACTICE JS"
+  },
+  {
+    "id": "log2",
+    "action": "list",
+    "taskId": null,
+    "timestamp": "2025-08-27T09:51:46.360Z",
+    "details": "Listed 1 tasks"
+  },
+  {
+    "id": "log3",
+    "action": "list",
+    "taskId": null,
+    "timestamp": "2025-08-27T09:52:03.049Z",
+    "details": "Listed 1 tasks"
+  },
+  {
+    "id": "log4",
+    "action": "update",
+    "taskId": "sjroaki7",
+    "timestamp": "2025-08-27T09:52:24.973Z",
+    "details": "Updated task from \"PRACTICE JS\" to \"HIT GYM\""
+  },
+  {
+    "id": "log5",
+    "action": "list",
+    "taskId": null,
+    "timestamp": "2025-08-27T09:52:41.678Z",
+    "details": "Listed 1 tasks"
+  },
+  {
+    "id": "log6",
+    "action": "toggle",
+    "taskId": "sjroaki7",
+    "timestamp": "2025-08-27T09:53:05.295Z",
+    "details": "Marked task as completed"
+  },
+  {
+    "id": "log7",
+    "action": "list",
+    "taskId": null,
+    "timestamp": "2025-08-27T09:53:17.977Z",
+    "details": "Listed 1 tasks"
+  },
+  {
+    "id": "log8",
+    "action": "remove",
+    "taskId": "sjroaki7",
+    "timestamp": "2025-08-27T09:53:28.562Z",
+    "details": "Deleted task: HIT GYM"
+  },
+  {
+    "id": "log9",
+    "action": "clear",
+    "taskId": null,
+    "timestamp": "2025-08-27T09:54:00.411Z",
+    "details": "Cleared all 0 tasks"
+  },
+  {
+    "id": "log10",
+    "action": "add",
+    "taskId": "q99ga4xy",
+    "timestamp": "2025-08-27T09:55:53.005Z",
+    "details": "Added task: PLAY GUITAR"
+  }
+]
