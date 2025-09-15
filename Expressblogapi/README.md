@@ -83,3 +83,74 @@ src/
 
 testing  test the API using **Postman** or **Thunder Client**:
 
+Registering the admin
+<img width="975" height="433" alt="image" src="https://github.com/user-attachments/assets/47f8a8d2-2c59-46ba-83bf-a5c2e9007043" />
+
+Registering the blogger 
+
+
+<img width="975" height="332" alt="image" src="https://github.com/user-attachments/assets/9926ebb0-6f0f-4ba6-8599-d2690354d071" />
+
+
+Login admin
+
+<img width="975" height="445" alt="image" src="https://github.com/user-attachments/assets/4cce6683-5e43-4214-8d1b-e659c37d4ad7" />
+Login blogger
+
+<img width="975" height="423" alt="image" src="https://github.com/user-attachments/assets/9b9c8f8f-5187-4089-b86e-c734cb701ea7" />
+
+Posting by admin 
+
+<img width="975" height="446" alt="image" src="https://github.com/user-attachments/assets/6215075c-bc8a-468e-bca1-a270a6a1b607" />
+
+
+Posting by blogger 
+
+<img width="975" height="393" alt="image" src="https://github.com/user-attachments/assets/9fcb047c-d840-41b1-81fa-0e15f37ffa4c" />
+
+Getting all post by admin 
+
+<img width="975" height="531" alt="image" src="https://github.com/user-attachments/assets/22504a7a-54b2-4cbe-82f6-f499db497302" />
+
+Getting single post  by admin 
+
+<img width="975" height="427" alt="image" src="https://github.com/user-attachments/assets/9d91203b-94e2-4d58-9e18-3fb6f5e26ae4" />
+
+Getting the post of respective blogger by blogger 
+
+<img width="975" height="422" alt="image" src="https://github.com/user-attachments/assets/30347d8d-29e5-4920-9316-b80bccb02e32" />
+
+Updating the post by admin 
+
+<img width="975" height="470" alt="image" src="https://github.com/user-attachments/assets/1f5454ff-2fdc-4bc2-ba9f-cd9ecc776081" />
+
+Updating only their post by blogger 
+
+<img width="975" height="489" alt="image" src="https://github.com/user-attachments/assets/8147c8ee-60ad-4cae-a461-0995b5c65322" />
+
+
+Post deleted successfully by admin
+
+<img width="975" height="269" alt="image" src="https://github.com/user-attachments/assets/fe5e1497-ca74-436b-82ee-e35596d1e830" />
+
+
+Deleting the post of blooger by that respective blogger
+
+<img width="975" height="295" alt="image" src="https://github.com/user-attachments/assets/a03f8ef7-b6d7-4bf3-a62f-86defb108792" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
